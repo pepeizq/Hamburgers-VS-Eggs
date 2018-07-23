@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Advertisements;
 
 public class MenuComportamiento : MonoBehaviour {
 
@@ -15,6 +14,8 @@ public class MenuComportamiento : MonoBehaviour {
             int puntuacion = PlayerPrefs.GetInt("puntuacion");
             puntuacionTexto.text = puntuacion.ToString();
         }
+
+        //Advertisement.Show();
     }
 
     public void LoadLevel(string nombreNivel)
