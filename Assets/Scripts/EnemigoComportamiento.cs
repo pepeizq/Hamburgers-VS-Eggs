@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemigoComportamiento : MonoBehaviour {
 
-    public int vida = 0;
+    public int vida = 1;
 
     public Transform explosion;
 
@@ -16,7 +14,7 @@ public class EnemigoComportamiento : MonoBehaviour {
             vida -= laser.daño;
             Destroy(colision.gameObject);
 
-            if (vida <= 0)
+            if (vida <= 1)
             {
                 Destroy(this.gameObject);
 

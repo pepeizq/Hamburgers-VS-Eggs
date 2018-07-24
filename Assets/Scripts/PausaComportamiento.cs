@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PausaComportamiento : MenuComportamiento {
@@ -8,7 +6,7 @@ public class PausaComportamiento : MenuComportamiento {
     public static bool estaPausado;
     public GameObject pausaMenu;
 
-    void Start ()
+    void Start()
     {
         estaPausado = false;
         pausaMenu.SetActive(false);

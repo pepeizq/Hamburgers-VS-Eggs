@@ -7,10 +7,6 @@ public class JuegoControlador : MonoBehaviour {
 
     public Transform enemigo;
 
-    public float tiempoAntesGeneracionEnemigos = 1.5f;
-    public float tiempoEntreEnemigos = .25f;
-    public float tiempoEntreOleadas = 2.0f;
-
     public int enemigosPorOleada = 10;
     private int actualNumeroEnemigos = 0;
 
@@ -22,6 +18,8 @@ public class JuegoControlador : MonoBehaviour {
     public Text oleadaTexto;
     public Text vidasJugadorTexto;
 
+    public GameObject pausaMenu;
+
     void Start ()
     {
         StartCoroutine(GenerarEnemigos());
@@ -29,19 +27,20 @@ public class JuegoControlador : MonoBehaviour {
 
     IEnumerator GenerarEnemigos()
     {
-        yield return new WaitForSeconds(tiempoAntesGeneracionEnemigos);
-
         while (true)
         {
+            yield return new WaitForSeconds(2);
+
             if (actualNumeroEnemigos <= 0)
             {
                 numeroOleada++;
                 oleadaTexto.text = "Wave: " + numeroOleada;
                 enemigosPorOleada += 2;
+                yield return new WaitForSeconds(5);
 
                 for (int i = 0; i < enemigosPorOleada; i++)
                 {
-                    float aleatoriaDistancia = Random.Range(15, 35);
+                    float aleatoriaDistancia = Random.Range(20, 35);
                     Vector2 aleatoriaDireccion = Random.insideUnitCircle;
                     Vector3 enemigoPosicion = this.transform.position;
 
@@ -50,10 +49,8 @@ public class JuegoControlador : MonoBehaviour {
 
                     Instantiate(enemigo, enemigoPosicion, this.transform.rotation);
                     actualNumeroEnemigos++;
-                    yield return new WaitForSeconds(tiempoEntreEnemigos);
                 }
             }
-            yield return new WaitForSeconds(tiempoEntreOleadas);
         }
     }
 
@@ -75,7 +72,13 @@ public class JuegoControlador : MonoBehaviour {
 
         if (vidasJugador <= 0)
         {
-            PlayerPrefs.SetInt("puntuacion", puntuacion);
+            int puntuacionPrevia = PlayerPrefs.GetInt("puntuacion");
+
+            if (puntuacion > puntuacionPrevia)
+            {
+                PlayerPrefs.SetInt("puntuacion", puntuacion);
+            }
+
             SceneManager.LoadScene("Menu");
         }
     }

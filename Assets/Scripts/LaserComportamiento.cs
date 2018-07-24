@@ -4,7 +4,7 @@ public class LaserComportamiento : MonoBehaviour {
 
     public float vidaTiempo = 3.0f;
     public float velocidad = 50.0f;
-    public int daño = 10;
+    public int daño = 1;
 
     void Start () {
         Destroy(gameObject, vidaTiempo);

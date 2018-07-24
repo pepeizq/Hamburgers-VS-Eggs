@@ -90,6 +90,7 @@ public class JugadorComportamiento : MonoBehaviour {
         {
             JuegoControlador controlador = GameObject.FindGameObjectWithTag("GameController").GetComponent<JuegoControlador>();
             controlador.BajarVida(1);
+            Destroy(colision.gameObject);
         }
     }
 }
