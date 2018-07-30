@@ -360,14 +360,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c8c7e477ec5ac499e7785d022229b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigo: {fileID: 4738414034562404, guid: 79cb6a4a8e585c549a3db801bb8c0770, type: 2}
-  tiempoAntesGeneracionEnemigos: 1.5
-  tiempoEntreEnemigos: 0.25
-  tiempoEntreOleadas: 2
+  enemigo1: {fileID: 4738414034562404, guid: 79cb6a4a8e585c549a3db801bb8c0770, type: 2}
   enemigosPorOleada: 10
   puntuacionTexto: {fileID: 2084075999}
   oleadaTexto: {fileID: 656176728}
   vidasJugadorTexto: {fileID: 689565044}
+  pausaMenu: {fileID: 0}
 --- !u!4 &286384604
 Transform:
   m_ObjectHideFlags: 0

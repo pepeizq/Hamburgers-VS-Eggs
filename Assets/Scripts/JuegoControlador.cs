@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class JuegoControlador : MonoBehaviour {
 
-    public Transform enemigo;
+    public Transform enemigo1;
 
     public int enemigosPorOleada = 10;
     private int actualNumeroEnemigos = 0;
@@ -26,29 +26,30 @@ public class JuegoControlador : MonoBehaviour {
     }
 
     IEnumerator GenerarEnemigos()
-    {
+    {     
         while (true)
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
 
             if (actualNumeroEnemigos <= 0)
             {
                 numeroOleada++;
                 oleadaTexto.text = "Wave: " + numeroOleada;
                 enemigosPorOleada += 2;
-                yield return new WaitForSeconds(5);
+                yield return new WaitForSeconds(3);
 
                 for (int i = 0; i < enemigosPorOleada; i++)
                 {
-                    float aleatoriaDistancia = Random.Range(20, 35);
+                    float aleatoriaDistancia = Random.Range(10, 35);
                     Vector2 aleatoriaDireccion = Random.insideUnitCircle;
                     Vector3 enemigoPosicion = this.transform.position;
 
                     enemigoPosicion.x += aleatoriaDireccion.x * aleatoriaDistancia;
                     enemigoPosicion.y += aleatoriaDireccion.y * aleatoriaDistancia;
 
-                    Instantiate(enemigo, enemigoPosicion, this.transform.rotation);
+                    Instantiate(enemigo1, enemigoPosicion, this.transform.rotation);
                     actualNumeroEnemigos++;
+                    yield return new WaitForSeconds(1);
                 }
             }
         }

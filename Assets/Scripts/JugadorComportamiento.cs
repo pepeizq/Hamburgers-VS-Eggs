@@ -20,7 +20,7 @@ public class JugadorComportamiento : MonoBehaviour {
         {
             Rotacion();
 
-            Movimiento();
+            //Movimiento();
 
             foreach (KeyCode boton in botonesDisparo)
             {
